@@ -1,0 +1,14 @@
+def decorator_imprimir(func):
+    def calc_decorator(capital, taxa, tempo):
+        resultado = func(capital, taxa, tempo)
+        print(f"Capital: {capital} Taxa: {taxa} Tempo: {tempo}")
+        print(f"RESULTADO: {resultado}")
+        return resultado
+    return calc_decorator
+
+@decorator_imprimir
+def juros_simples(capital, taxa, tempo):
+    return capital * (taxa/100) * tempo
+
+# Exemplo de uso
+juros_simples(1000, 5, 6)
